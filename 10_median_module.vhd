@@ -43,7 +43,7 @@ begin
         end loop;
 
         -------------------------------------------------
-        -- Cargar SOLO datos válidos
+        -- Cargar SOLO datos vÃ¡lidos
         -------------------------------------------------
 
         if count > 0 then
@@ -89,7 +89,7 @@ begin
         end loop;
 
         -------------------------------------------------
-        -- Selección de mediana
+        -- SelecciÃ³n de mediana
         -------------------------------------------------
 
         case count is
