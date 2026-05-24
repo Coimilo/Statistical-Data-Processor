@@ -23,7 +23,7 @@ end display_mux;
 architecture Behavioral of display_mux is
 
     -------------------------------------------------
-    -- Señales internas
+    -- SeÃ±ales internas
     -------------------------------------------------
 
     signal refresh_counter : UNSIGNED(15 downto 0);
@@ -50,13 +50,13 @@ begin
     end process;
 
     -------------------------------------------------
-    -- Selector de dígito
+    -- Selector de dÃ­gito
     -------------------------------------------------
 
     digit_select <= refresh_counter(15 downto 14);
 
     -------------------------------------------------
-    -- Multiplexación
+    -- MultiplexaciÃ³n
     -------------------------------------------------
 
     process(digit_select, hundreds, tens, unit_s)
