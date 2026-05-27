@@ -31,6 +31,8 @@ begin
         variable temp : UNSIGNED(3 downto 0);
 
         variable med  : UNSIGNED(3 downto 0);
+        
+        variable temp_sum : UNSIGNED(4 downto 0);
 
     begin
 
@@ -43,7 +45,7 @@ begin
         end loop;
 
         -------------------------------------------------
-        -- Cargar SOLO datos válidos
+        -- Cargar SOLO datos v�lidos
         -------------------------------------------------
 
         if count > 0 then
@@ -89,7 +91,7 @@ begin
         end loop;
 
         -------------------------------------------------
-        -- Selección de mediana
+        -- Selecci�n de mediana
         -------------------------------------------------
 
         case count is
@@ -100,15 +102,19 @@ begin
 
             when "010" =>
 
-                med := resize((arr(0) + arr(1)) / 2, 4);
+                temp_sum := resize(arr(0),5) + resize(arr(1),5);
+
+                med := resize((temp_sum / 2),4);
 
             when "011" =>
 
                 med := arr(1);
 
             when "100" =>
+            
+                temp_sum := resize(arr(1),5) + resize(arr(2),5);
 
-                med := resize((arr(1) + arr(2)) / 2, 4);
+                med := resize((temp_sum / 2),4);
 
             when "101" =>
 
