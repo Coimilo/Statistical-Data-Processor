@@ -6,10 +6,9 @@ use IEEE.NUMERIC_STD.ALL;
 entity binary_to_bcd is
     Port (
 
-        binary_value : in  UNSIGNED(15 downto 0);
+        binary_value : in  UNSIGNED(6 downto 0);
         error        : in STD_LOGIC;
 
-        hundreds     : out UNSIGNED(3 downto 0);
         tens         : out UNSIGNED(3 downto 0);
         unit_s        : out UNSIGNED(3 downto 0)
 
@@ -24,7 +23,6 @@ begin
 
         variable temp_int : integer;
 
-        variable h : integer;
         variable t : integer;
         variable u : integer;
 
@@ -32,9 +30,7 @@ begin
         
         if error = '1' then
         
-        hundreds <= "1100";
-
-        tens <= "1111";
+        tens <= "1100";
 
         unit_s <= "1111";
         
@@ -42,13 +38,9 @@ begin
         
         temp_int := to_integer(binary_value);
 
-        h := temp_int / 100;
-
-        t := (temp_int mod 100) / 10;
+        t := temp_int / 10;
 
         u := temp_int mod 10;
-
-        hundreds <= to_unsigned(h, 4);
 
         tens <= to_unsigned(t, 4);
 
