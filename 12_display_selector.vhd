@@ -16,9 +16,9 @@ entity display_selector is
         median_value   : in UNSIGNED(3 downto 0);
         
         sum_value      : in UNSIGNED(6 downto 0);
-        variance_value : in UNSIGNED(15 downto 0);
+        variance_value : in UNSIGNED(5 downto 0);
 
-        display_value  : out UNSIGNED(15 downto 0)
+        display_value  : out UNSIGNED(6 downto 0)
 
     );
 end display_selector;
@@ -45,35 +45,35 @@ begin
 
             when "000" =>
 
-                display_value <= resize(max_value, 16);
+                display_value <= resize(max_value, 7);
 
             when "001" =>
 
-                display_value <= resize(min_value, 16);
+                display_value <= resize(min_value, 7);
 
             when "010" =>
 
-                display_value <= resize(range_value, 16);
+                display_value <= resize(range_value, 7);
                 
             when "011" =>
 
-                display_value <= resize(sum_value, 16);
+                display_value <= sum_value;
 
             when "100" =>
 
-                display_value <= resize(average_value, 16);
+                display_value <= resize(average_value, 7);
 
             when "101" =>
 
-                display_value <= resize(mode_value, 16);
+                display_value <= resize(mode_value, 7);
 
             when "110" =>
 
-                display_value <= resize(median_value, 16);
+                display_value <= resize(median_value, 7);
 
             when "111" =>
 
-                display_value <= variance_value;
+                display_value <= resize(variance_value, 7);
 
             when others =>
 
