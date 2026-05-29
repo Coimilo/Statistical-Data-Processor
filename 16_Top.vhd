@@ -73,13 +73,13 @@ architecture Structural of top_level is
 
     signal median_value   : UNSIGNED(3 downto 0);
 
-    signal variance_value : UNSIGNED(15 downto 0);
+    signal variance_value : UNSIGNED(5 downto 0);
 
     -------------------------------------------------
     -- Display
     -------------------------------------------------
 
-    signal display_value : UNSIGNED(15 downto 0);
+    signal display_value : UNSIGNED(6 downto 0);
 
     signal hundreds : UNSIGNED(3 downto 0);
 
