@@ -15,7 +15,7 @@ entity variance_module is
 
         average_value  : in  UNSIGNED(3 downto 0);
 
-        variance_value : out UNSIGNED(15 downto 0)
+        variance_value : out UNSIGNED(5 downto 0)
 
     );
 end variance_module;
@@ -111,7 +111,7 @@ begin
             variance_value <=
                 to_unsigned(
                     sum_sq / to_integer(count),
-                    16
+                    6
                 );
 
         else
